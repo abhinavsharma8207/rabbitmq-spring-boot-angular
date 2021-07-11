@@ -1,0 +1,76 @@
+<div class="list row">
+    <div class="col-md-12">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search String"
+          [(ngModel)]="title"
+          (input)="onSearchChange($event.target.value)"
+        />
+        <div class="checkbox col-md-2">
+            <label><input type="checkbox" name="searchBy" [checked]="currentlyChecked === check_box_type.SEARCH_BY_TITLE" (click)="selectCheckBox(check_box_type.SEARCH_BY_TITLE)"> Search By Title</label>
+            
+        </div>
+        <div class="checkbox col-md-2">
+            <label><input type="checkbox" name="searchBy" [checked]="currentlyChecked === check_box_type.SEARCH_BY_AUTHOR" (click)="selectCheckBox(check_box_type.SEARCH_BY_AUTHOR)"> Search By Author</label>
+            
+        </div>
+
+        
+        <div class="col-md-4">
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="searchTitle()"
+            
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Books List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let book of books; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveBook(book, i)"
+        >
+          {{ book.title }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentBook.id">
+        <h4>Book</h4>
+        <div>
+            <label><strong>ISBN:</strong></label> {{ currentBook.isbn }}
+          </div>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentBook.title }}
+        </div>
+        <div>
+            <label><strong>Author:</strong></label> {{ currentBook.author}}
+          </div>
+          <div>
+            <label><strong>Price:</strong></label> {{ currentBook.price | currency:'USD':'symbol'}}
+          </div>
+          <div>
+            <label><strong>Publisher:</strong></label> {{ currentBook.publisher}}
+          </div> 
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentBook.description }}
+        </div>
+       
+      </div>
+  
+      <div *ngIf="(currentBook | json) === ({} | json) && books?.length > 0">
+        <br />
+        <p>Please click on a Book...</p>
+      </div>
+    </div>
+  </div>
