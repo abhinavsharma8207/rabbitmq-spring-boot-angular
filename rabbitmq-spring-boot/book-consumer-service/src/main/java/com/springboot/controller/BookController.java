@@ -40,10 +40,12 @@ public class BookController {
     }
 
 
-    @GetMapping("/books/author")
+     @GetMapping("/books/author")
     public ResponseEntity<List<Book>> findByAuthor(String author) {
         try {
-            List<Book> books = bookRepository.findByAuthorContaining(author);
+            List<Book> books = new ArrayList<Book>();
+
+            bookRepository.findByAuthorContaining(author).forEach(books::add);
 
             if (books.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -53,5 +55,4 @@ public class BookController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
