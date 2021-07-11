@@ -1,12 +1,13 @@
 <div class="list row">
     <div class="col-md-12">
+      <a></a>
       <div class="input-group mb-3">
         <input
           type="text"
           class="form-control"
           placeholder="Search String"
           [(ngModel)]="title"
-          (input)="onSearchChange($event.target.value)"
+          
         />
         <div class="checkbox col-md-2">
             <label><input type="checkbox" name="searchBy" [checked]="currentlyChecked === check_box_type.SEARCH_BY_TITLE" (click)="selectCheckBox(check_box_type.SEARCH_BY_TITLE)"> Search By Title</label>
@@ -27,7 +28,15 @@
           >
             Search
           </button>
-        </div>
+          <button
+          class="btn btn-primary"
+          type="button"
+          (click)="refreshList()"
+          
+        >
+          Reload
+        </button>
+          
       </div>
     </div>
     <div class="col-md-6">

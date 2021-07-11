@@ -20,7 +20,7 @@ export class BooksListComponent implements OnInit {
   
 
   constructor(private bookService: BookService) { }
-
+  
   ngOnInit(): void {
     this.retrieveBooks();
   }
@@ -73,7 +73,7 @@ export class BooksListComponent implements OnInit {
         });
 
       }
-      if (this.currentlyChecked === CheckBoxType.SEARCH_BY_AUTHOR && this.title)
+      else if (this.currentlyChecked === CheckBoxType.SEARCH_BY_AUTHOR && this.title)
     {
     this.bookService.findByAuthor(this.title)
       .subscribe(
@@ -86,6 +86,11 @@ export class BooksListComponent implements OnInit {
         });
 
       }
+
+      else{
+        this.refreshList();
+      }
+
       
 
   }
