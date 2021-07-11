@@ -1,0 +1,6 @@
+{ "isbn": "abcd1334","title": "Sherlock Holmes Adventures", "author":"Arthur Conan Doyle", "price": 10,
+ "publisher": "George Newnes", "genre": "Detective fiction short stories", "description": "The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, first published on 14 October 1892" }
+
+
+{ "isbn": "dfgh1334","title": "Last Day", "author":"Luanne Rice", "price": 20,
+ "publisher": "New York Times", "genre": "Detective fiction short stories", "description": "From celebrated New York Times bestselling author Luanne Rice comes a riveting story of a seaside community shaken by a violent crime and a tragic loss." }
